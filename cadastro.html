@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Apadrinhamento | Amor que Cura</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <div class="logo-wrapper">
+        <img src="images/logo.png" alt="Logo Projeto Amor que Cura">
+      </div>
+      <h1>Projeto Amor que Cura</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Início</a></li>
+        <li><a href="projetos.html">Projetos</a></li>
+        <li><a href="cadastro.html">Apadrinhamento</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="apadrinhamento">
+      <h2>Apadrinhamento</h2>
+      <p>Você pode fazer parte da mudança de vida de uma criança!</p>
+
+      <form id="formApadrinhamento" action="#" method="post">
+        <label for="nome">Nome Completo *</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefone">Telefone *</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+
+        <label for="cpf">CPF *</label>
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+
+        <label for="dataNascimento">Data de Nascimento *</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+        <label for="endereco">Endereço *</label>
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="cidade">Cidade *</label>
+        <input type="text" id="cidade" name="cidade" required>
+
+        <label for="cep">CEP *</label>
+        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+
+        <label for="estado">Estado *</label>
+        <select id="estado" name="estado" required>
+          <option value="">Selecione...</option>
+          <option value="MG">Minas Gerais (MG)</option>
+          <option value="SP">São Paulo (SP)</option>
+          <option value="RJ">Rio de Janeiro (RJ)</option>
+          <!-- ... restantes -->
+        </select>
+
+        <label for="tipo">Deseja ser:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecione...</option>
+          <option value="voluntario">Voluntário</option>
+          <option value="padrinho">Padrinho</option>
+          <option value="ambos">Ambos</option>
+        </select>
+
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" name="mensagem" rows="4"></textarea>
+
+        <button type="submit">Enviar Cadastro</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 - Projeto Amor que Cura | Todos os direitos reservados</p>
+  </footer>
+</body>
+</html>
