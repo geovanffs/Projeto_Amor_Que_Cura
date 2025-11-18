@@ -10,12 +10,16 @@ const templates = {
         <img src="images/tela-inicio.jpg" alt="Família" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px;">
       </div>
       <div class="col-6">
-        <h1 style="color: var(--cor-primary); margin-bottom: 20px;">Bem-vindo à SPA Amor que Cura</h1>
-        <p style="font-size: 1.1rem; color: var(--cor-text-light);">Transformando a experiência do usuário com Single Page Application.</p>
+        <h1 style="color: var(--cor-primary); margin-bottom: 20px;">Bem-vindo ao Projeto Amor que Cura</h1>
+        <p style="font-size: 1.1rem; color: var(--cor-text-light);">Somos um farol de esperança e transformação na nossa comunidade. Nosso propósito é auxiliar crianças com doenças raras, oferecendo suporte emocional, assistência médica e apoio essencial.
+
+Há mais de 10 anos transformando vidas com amor e esperança! Este projeto é um compromisso com a qualidade de vida e um futuro melhor para todos.
+
+.</p>
         <br>
         <div class="grid-12">
-            <div class="col-6"><h3 style="color: var(--cor-secondary);">SPA</h3><p>Navegação sem recarregar</p></div>
-            <div class="col-6"><h3 style="color: var(--cor-secondary);">DOM</h3><p>Interatividade Total</p></div>
+            <div class="col-6"><h3 style="color: var(--cor-secondary);">Amor</h3><p>]É o melhor remédio</p></div>
+            <div class="col-6"><h3 style="color: var(--cor-secondary);">Ajudar</h3><p>]O proximo é multiplicar o amor do mundo</p></div>
         </div>
       </div>
     </div>
