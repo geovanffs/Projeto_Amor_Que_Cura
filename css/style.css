@@ -161,3 +161,20 @@ input:valid { border-color: var(--cor-success); }
   background: white; padding: 40px; border-radius: 20px; text-align: center; max-width: 400px; animation: popUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 @keyframes popUp { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+
+/* Estilo para mensagem de erro no formulário */
+.error-message {
+  color: var(--cor-error);
+  font-size: 0.85rem;
+  margin-top: -15px;
+  margin-bottom: 15px;
+  display: block;
+  font-weight: 600;
+}
+
+/* Quando o campo tem erro */
+input.input-error {
+  border-color: var(--cor-error);
+  background-color: #fff5f5;
+}
+
