@@ -1,4 +1,6 @@
- /* css/style.css */
+/* css/style.css - versão corrigida e limpa */
+
+/* === RESET / BASE === */
 html, body {
   margin: 0;
   padding: 0;
@@ -8,18 +10,10 @@ html, body {
   background-color: #fff;
 }
 
-h1, h2 {
-  color: #333;
-}
+h1, h2 { color: #333; }
 
-a {
-  color: #a02cf0;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
+a { color: #a02cf0; text-decoration: none; }
+a:hover { text-decoration: underline; }
 
 /* === CABEÇALHO === */
 header {
@@ -34,6 +28,7 @@ header {
   z-index: 1000;
 }
 
+/* logo */
 .logo {
   display: flex;
   align-items: center;
@@ -41,34 +36,40 @@ header {
   position: relative;
 }
 
-/* === LOGO COM FUNDO TRANSPARENTE E SOMBRA VISÍVEL === */
+/* === LOGO: círculo com sombra e overflow para "cortar" parte inferior se quiser === */
 .logo-wrapper {
   width: 120px;
-  height: 120px;
+  height: 120px;              /* ajuste a altura aqui para aumentar/reduzir o círculo */
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  background-color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  background-color: #fff;     /* branco dentro do círculo (você pode tornar transparente removendo) */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  overflow: hidden;           /* corta tudo que saia do círculo (útil para "recorte de 20px") */
   position: relative;
 }
 
+/* cortar 20px do final da imagem: aumente a altura da imagem e mova para cima via transform */
+.logo-wrapper.cropped img {
+  height: calc(100% + 20px);  /* aumenta a área da imagem dentro do wrapper */
+  transform: translateY(-10px); /* move levemente para cima; ajuste valor conforme necessário */
+}
+
+/* imagem dentro do círculo */
 .logo img {
   width: 120px;
   height: 120px;
-  object-fit: contain;
-  background-color: #fff;
+  object-fit: cover;          /* cover garante que a imagem preencha o círculo sem distorcer */
   border-radius: 50%;
-  padding: 10px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  display: block;
 }
 
-.logo img:hover {
-  transform: scale(1.05);
-}
+/* hover sutil na imagem */
+.logo img:hover { transform: scale(1.05); transition: transform .25s ease; }
 
+/* === NAV === */
 nav ul {
   display: flex;
   list-style: none;
@@ -83,22 +84,43 @@ nav a {
   transition: color 0.3s;
 }
 
-nav a:hover {
-  color: #ffd7ef;
+nav a:hover { color: #ffd7ef; }
+
+/* destaque para link ativo (classe adicionada por JS) */
+nav a.is-active {
+  outline: 0.12rem solid rgba(255,255,255,0.12);
+  border-radius:6px;
+  padding:6px 8px;
 }
 
 /* === CONTEÚDO === */
 main {
   padding: 20px 40px;
   max-width: 1000px;
-  margin: auto;
+  margin: 0 auto;
 }
 
-section {
+/* animação */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Seções: por padrão escondidas — JS mostrará apenas a .active.
+   Isso garante comportamento single-page controlado por script.
+*/
+main section {
+  display: none;
   animation: fadeIn 0.4s ease-in;
   margin-bottom: 30px;
+  padding: 40px 0;
 }
 
+main section.active {
+  display: block;
+}
+
+/* imagens dentro das seções */
 section img {
   width: 250px;
   max-width: 100%;
@@ -108,11 +130,7 @@ section img {
   margin-bottom: 20px;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
+/* listas */
 ul { padding-left: 20px; }
 
 /* === FORMULÁRIO DE APADRINHAMENTO === */
@@ -120,7 +138,7 @@ form {
   background: #f9f9f9;
   padding: 20px 30px;
   border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
   margin-top: 30px;
 }
 
@@ -139,9 +157,7 @@ input, select, textarea {
   font-size: 1rem;
 }
 
-textarea {
-  resize: vertical;
-}
+textarea { resize: vertical; }
 
 button {
   background: linear-gradient(to right, #a02cf0, #f26ea7);
@@ -154,9 +170,7 @@ button {
   margin-top: 15px;
 }
 
-button:hover {
-  background: #9223d4;
-}
+button:hover { background: #9223d4; }
 
 /* === RODAPÉ === */
 footer {
@@ -171,16 +185,6 @@ footer {
 @media (max-width: 768px) {
   main { padding: 20px; }
   nav ul { flex-direction: column; gap: 10px; }
-  .logo-wrapper { width: 60px; height: 45px; }
+  .logo-wrapper { width: 60px; height: 60px; }
   .logo img { width: 60px; height: 60px; }
-
-/* garante que seções fiquem escondidas por padrão se JS não rodar */
-main section { display: none; padding: 30px 0; }
-main section.active { display: block; }
-
-/* destaque para link ativo */
-nav a.is-active { outline: 2px solid rgba(255,255,255,0.12); border-radius: 6px; }
-
-/* pequenos ajustes de layout (opcional) */
-main { max-width: 1000px; margin: 0 auto; padding: 30px; }
-
+}
