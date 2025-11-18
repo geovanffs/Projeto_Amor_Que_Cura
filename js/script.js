@@ -65,8 +65,11 @@ Há mais de 10 anos transformando vidas com amor e esperança! Este projeto é u
   cadastro: `
     <div class="grid-12 fade-in">
       <div class="col-6" style="grid-column: span 8; grid-start: 3; margin: 0 auto;">
-        <h2 style="color: var(--cor-primary);">Cadastro Interativo</h2>
-        <p>Seus dados serão validados e salvos no navegador.</p>
+        <h2 style="color: var(--cor-primary);">Faça parte desta onda de Amor!</h2>
+        <p>Você sabia que aqui na ONG Amor que Cura, trabalhamos durante os 365 dias do ano cuidando de quem precisa de ajuda, e fazemos TUDO que está ao nosso alcance para atender a todos que chegam até nós?
+        Tornando-se 'Padrinho de Cuidado', alguém receberá ainda MAIS apoio. E, com o tempo, será possível que absorvamos novas crianças para os projetos que realizamos com tanto amor.
+        Afinal, O AMOR CURA!
+        </p>
         
         <form id="spaForm" novalidate style="margin-top: 20px;">
           <div class="form-group">
