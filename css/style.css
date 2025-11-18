@@ -1,190 +1,181 @@
-/* css/style.css - versão corrigida e limpa */
+<style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background-color: #fff;
+    }
 
-/* === RESET / BASE === */
-html, body {
-  margin: 0;
-  padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #fff;
-}
+    h1, h2 {
+      color: #333;
+    }
 
-h1, h2 { color: #333; }
+    a {
+      color: #a02cf0;
+      text-decoration: none;
+    }
 
-a { color: #a02cf0; text-decoration: none; }
-a:hover { text-decoration: underline; }
+    a:hover {
+      text-decoration: underline;
+    }
 
-/* === CABEÇALHO === */
-header {
-  background: linear-gradient(to right, #a02cf0, #f26ea7);
-  color: white;
-  padding: 15px 30px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
+    /* === CABEÇALHO === */
+    header {
+      background: linear-gradient(to right, #a02cf0, #f26ea7);
+      color: white;
+      padding: 15px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
 
-/* logo */
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  position: relative;
-}
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+    }
 
-/* === LOGO: círculo com sombra e overflow para "cortar" parte inferior se quiser === */
-.logo-wrapper {
-  width: 120px;
-  height: 120px;              /* ajuste a altura aqui para aumentar/reduzir o círculo */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background-color: #fff;     /* branco dentro do círculo (você pode tornar transparente removendo) */
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  overflow: hidden;           /* corta tudo que saia do círculo (útil para "recorte de 20px") */
-  position: relative;
-}
+    /* === LOGO COM FUNDO TRANSPARENTE E SOMBRA VISÍVEL === */
+    .logo-wrapper {
+      width: 120px;
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      position: relative;
+    }
 
-/* cortar 20px do final da imagem: aumente a altura da imagem e mova para cima via transform */
-.logo-wrapper.cropped img {
-  height: calc(100% + 20px);  /* aumenta a área da imagem dentro do wrapper */
-  transform: translateY(-10px); /* move levemente para cima; ajuste valor conforme necessário */
-}
+    .logo img {
+      width: 120px;
+      height: 120px;
+      object-fit: contain;
+      background-color: #fff;
+      border-radius: 50%;
+      padding: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
 
-/* imagem dentro do círculo */
-.logo img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;          /* cover garante que a imagem preencha o círculo sem distorcer */
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  display: block;
-}
+    .logo img:hover {
+      transform: scale(1.05);
+    }
 
-/* hover sutil na imagem */
-.logo img:hover { transform: scale(1.05); transition: transform .25s ease; }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      margin: 0;
+      padding: 0;
+    }
 
-/* === NAV === */
-nav ul {
-  display: flex;
-  list-style: none;
-  gap: 20px;
-  margin: 0;
-  padding: 0;
-}
+    nav a {
+      color: white;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
 
-nav a {
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s;
-}
+    nav a:hover {
+      color: #ffd7ef;
+    }
 
-nav a:hover { color: #ffd7ef; }
+    /* === CONTEÚDO === */
+    main {
+      padding: 20px 40px;
+      max-width: 1000px;
+      margin: auto;
+    }
 
-/* destaque para link ativo (classe adicionada por JS) */
-nav a.is-active {
-  outline: 0.12rem solid rgba(255,255,255,0.12);
-  border-radius:6px;
-  padding:6px 8px;
-}
+    section {
+      display: none;
+      animation: fadeIn 0.4s ease-in;
+    }
 
-/* === CONTEÚDO === */
-main {
-  padding: 20px 40px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
+    section.active {
+      display: block;
+    }
 
-/* animação */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    section img {
+      width: 250px;
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      display: block;
+      margin-bottom: 20px;
+    }
 
-/* Seções: por padrão escondidas — JS mostrará apenas a .active.
-   Isso garante comportamento single-page controlado por script.
-*/
-main section {
-  display: none;
-  animation: fadeIn 0.4s ease-in;
-  margin-bottom: 30px;
-  padding: 40px 0;
-}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-main section.active {
-  display: block;
-}
+    ul { padding-left: 20px; }
 
-/* imagens dentro das seções */
-section img {
-  width: 250px;
-  max-width: 100%;
-  height: auto;
-  border-radius: 20px;
-  display: block;
-  margin-bottom: 20px;
-}
+    /* === FORMULÁRIO DE APADRINHAMENTO === */
+    form {
+      background: #f9f9f9;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 30px;
+    }
 
-/* listas */
-ul { padding-left: 20px; }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-/* === FORMULÁRIO DE APADRINHAMENTO === */
-form {
-  background: #f9f9f9;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-  margin-top: 30px;
-}
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      margin-top: 5px;
+      font-size: 1rem;
+    }
 
-label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
+    textarea {
+      resize: vertical;
+    }
 
-input, select, textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  margin-top: 5px;
-  font-size: 1rem;
-}
+    button {
+      background: linear-gradient(to right, #a02cf0, #f26ea7);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+      margin-top: 15px;
+    }
 
-textarea { resize: vertical; }
+    button:hover {
+      background: #9223d4;
+    }
 
-button {
-  background: linear-gradient(to right, #a02cf0, #f26ea7);
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 15px;
-}
+    /* === RODAPÉ === */
+    footer {
+      background-color: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
 
-button:hover { background: #9223d4; }
-
-/* === RODAPÉ === */
-footer {
-  background-color: #222;
-  color: #ccc;
-  text-align: center;
-  padding: 20px;
-  margin-top: 40px;
-}
-
-/* === RESPONSIVIDADE === */
-@media (max-width: 768px) {
-  main { padding: 20px; }
-  nav ul { flex-direction: column; gap: 10px; }
-  .logo-wrapper { width: 60px; height: 60px; }
-  .logo img { width: 60px; height: 60px; }
-}
+    /* === RESPONSIVIDADE === */
+    @media (max-width: 768px) {
+      main { padding: 20px; }
+      nav ul { flex-direction: column; gap: 10px; }
+      .logo-wrapper { width: 60px; height: 45px; }
+      .logo img { width: 60px; height: 60px; }
+    }
+  </style>
