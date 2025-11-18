@@ -178,3 +178,27 @@ input.input-error {
   background-color: #fff5f5;
 }
 
+/* Garante que o dropdown comece escondido */
+.dropdown-menu {
+  display: none; 
+  position: absolute;
+  background: white;
+  min-width: 160px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border-radius: 8px;
+  z-index: 100;
+}
+
+/* Mostra apenas quando passar o mouse (Desktop) */
+@media (min-width: 768px) {
+  .has-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Garante que os links dentro do dropdown tenham cor escura */
+.dropdown-menu a {
+  color: #333 !important;
+  display: block;
+  padding: 10px;
+}
