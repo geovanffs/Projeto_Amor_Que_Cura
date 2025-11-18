@@ -2,6 +2,8 @@
 
 Este site apresenta o projeto social **Amor que Cura**, que atua há mais de 10 anos transformando vidas por meio de ações sociais, aulas e apoio a crianças com doenças raras.
 
+Acesse o nosso site: https://geovanffs.github.io/Projeto_Amor_Que_Cura/
+
 ## 📁 Estrutura do Projeto
 - **index.html** → Página inicial com informações gerais  
 - **projetos.html** → Detalhes sobre aulas e ações realizadas  
