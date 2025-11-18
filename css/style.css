@@ -173,4 +173,21 @@ footer {
   nav ul { flex-direction: column; gap: 10px; }
   .logo-wrapper { width: 60px; height: 45px; }
   .logo img { width: 60px; height: 60px; }
+
+ /* esconder por padrão (se o JS não rodar já fica oculto) */
+main section {
+  display: none;
+  padding: 30px 0;
 }
+
+/* seção ativa fica visível */
+main section.active {
+  display: block;
+}
+
+/* classe visual para link ativo (opcional) */
+nav a.is-active {
+  outline: 3px solid rgba(255,255,255,0.12);
+  border-radius: 6px;
+}
+
