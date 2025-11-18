@@ -19,7 +19,6 @@ function maskCEP(value) {
   return value.replace(/\D/g, '').replace(/(\d{5})(\d)/, '$1-$2').slice(0,9);
 }
 
-// Função que anexa listeners com checagens de existência
 function setupFormAndMasks() {
   const cpf = document.getElementById('cpf');
   const tel = document.getElementById('telefone');
@@ -52,21 +51,19 @@ function setupFormAndMasks() {
 
   if (form) {
     form.addEventListener('submit', function (e) {
-      // validação nativa HTML5
       if (!form.checkValidity()) {
         form.reportValidity();
         e.preventDefault();
         return;
       }
 
-      e.preventDefault(); // impedir envio real (até você configurar backend)
+      e.preventDefault(); // impedir envio real (até configurar backend)
       alert('Cadastro enviado com sucesso! Obrigado por se juntar ao projeto 💖');
       form.reset();
     });
   }
 }
 
-// Garantir que o DOM esteja pronto antes de procurar elementos
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', setupFormAndMasks);
 } else {
