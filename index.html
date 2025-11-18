@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projeto Amor que Cura</title>
+
+  <!-- style e script -->
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/script.js"></script>
 </head>
-
 <body>
   <header>
     <div class="logo">
       <div class="logo-wrapper">
+        <!-- Verifique que o arquivo exista exatamente com esse nome em /images -->
         <img src="images/logo.png" alt="Logo Projeto Amor que Cura">
       </div>
       <h1>Projeto Amor que Cura</h1>
@@ -19,29 +21,30 @@
 
     <nav>
       <ul>
-        <li><a href="index.html#inicio">Início</a></li>
-        <li><a href="index.html#beneficios">Benefícios</a></li>
-        <li><a href="projetos.html#aulas">Aulas</a></li>
-        <li><a href="projetos.html#acoes">Ações Realizadas</a></li>
-        <li><a href="index.html#midias">Mídias</a></li>
-        <li><a href="cadastro.html">Apadrinhamento</a></li>
+        <!-- usamos data-section para navegação single-page como no VSCode -->
+        <li><a href="#" data-section="inicio" class="is-active">Início</a></li>
+        <li><a href="#" data-section="beneficios">Benefícios</a></li>
+        <li><a href="#" data-section="aulas">Aulas</a></li>
+        <li><a href="#" data-section="acoes">Ações Realizadas</a></li>
+        <li><a href="#" data-section="midias">Mídias</a></li>
+        <li><a href="#" data-section="apadrinhamento">Apadrinhamento</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="inicio" class="active">
+    <!-- INÍCIO -->
+    <section id="inicio" class="active" aria-labelledby="titulo-inicio">
       <img src="images/tela-inicio.jpg" alt="Família feliz representando o projeto Amor que Cura">
-      <h2>Sobre o Projeto</h2>
-      <p>
-        O projeto social <strong>Amor que Cura</strong> tem sido um farol de esperança e transformação em nossa comunidade.
-      </p>
-      <p>Há mais de 10 anos transformando vidas com amor e esperança!</p>
+      <h2 id="titulo-inicio">Sobre o Projeto</h2>
+      <p>O projeto social <strong>Amor que Cura</strong> tem sido um farol de esperança e transformação em nossa comunidade. Nosso propósito é auxiliar crianças com doenças raras, oferecendo suporte emocional, assistência médica e apoio essencial.</p>
+      <p>Há mais de 10 anos transformando vidas com amor e esperança! Este projeto é um compromisso com a qualidade de vida e um futuro melhor para todos.</p>
     </section>
 
-    <section id="beneficios">
-      <img src="images/icone-beneficios.jpg" alt="Ícone representando benefícios">
-      <h2>Benefícios</h2>
+    <!-- BENEFÍCIOS -->
+    <section id="beneficios" aria-labelledby="titulo-beneficios">
+      <img src="images/icone_beneficios.jpg" alt="Ícone de coração representando benefícios">
+      <h2 id="titulo-beneficios">Benefícios</h2>
       <ul>
         <li>Assistência Médica e Psicossocial</li>
         <li>Programas Educacionais</li>
@@ -50,9 +53,10 @@
       </ul>
     </section>
 
-    <section id="aulas">
+    <!-- AULAS -->
+    <section id="aulas" aria-labelledby="titulo-aulas">
       <img src="images/tela-aulas.png" alt="Ícone das aulas">
-      <h2>Aulas</h2>
+      <h2 id="titulo-aulas">Aulas</h2>
       <ul>
         <li>Balé</li>
         <li>Muay Thai</li>
@@ -62,34 +66,105 @@
       </ul>
     </section>
 
-    <section id="acoes">
+    <!-- AÇÕES -->
+    <section id="acoes" aria-labelledby="titulo-acoes">
       <img src="images/tela-acoes-realizadas.png" alt="Ícone de ação social">
-      <h2>Ações Realizadas</h2>
+      <h2 id="titulo-acoes">Ações Realizadas</h2>
       <ul>
         <li>Natal Solidário</li>
         <li>Campanha do agasalho</li>
         <li>Eventos de integração familiar</li>
         <li>Atendimentos médicos e odontológicos gratuitos</li>
-        <li>Oficinas de capacitação profissional</li>
-        <li>Distribuição de cestas básicas</li>
       </ul>
     </section>
 
-    <section id="midias">
+    <!-- MÍDIAS -->
+    <section id="midias" aria-labelledby="titulo-midias">
       <img src="images/tela-midias.png" alt="Ícone de mídias sociais">
-      <h2>Mídias</h2>
-      <p>Acompanhe nossas ações e eventos nas redes sociais:</p>
-      <ul>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Facebook</a></li>
-      </ul>
+      <h2 id="titulo-midias">Mídias</h2>
+      <p>Acompanhe nossas ações nas redes:</p>
+      <a href="#">Instagram</a><br>
+      <a href="#">YouTube</a><br>
+      <a href="#">Facebook</a>
     </section>
 
-    <section id="apadrinhamento">
+    <!-- APADRINHAMENTO -->
+    <section id="apadrinhamento" aria-labelledby="titulo-apadrinhamento">
       <img src="images/tela-apadrinhamento.png" alt="Ícone de apadrinhamento">
-      <h2>Apadrinhamento</h2>
-      <p>Tornando-se 'Padrinho de Cuidado', você ajuda a transformar vidas.</p>
+      <h2 id="titulo-apadrinhamento">Apadrinhamento</h2>
+      <p>Você pode fazer parte da mudança de vida de uma criança!</p>
+
+      <!-- Formulário completo (mantenha action="#" se for apenas mock) -->
+      <form id="formApadrinhamento" action="#" method="post" novalidate>
+        <label for="nome">Nome Completo *</label>
+        <input type="text" id="nome" name="nome" required>
+
+        <label for="email">E-mail *</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="telefone">Telefone *</label>
+        <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+
+        <label for="cpf">CPF *</label>
+        <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
+
+        <label for="dataNascimento">Data de Nascimento *</label>
+        <input type="date" id="dataNascimento" name="dataNascimento" required>
+
+        <label for="endereco">Endereço *</label>
+        <input type="text" id="endereco" name="endereco" required>
+
+        <label for="cidade">Cidade *</label>
+        <input type="text" id="cidade" name="cidade" required>
+
+        <label for="cep">CEP *</label>
+        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
+
+        <label for="estado">Estado *</label>
+        <select id="estado" name="estado" required>
+          <option value="">Selecione...</option>
+          <option value="AC">Acre (AC)</option>
+          <option value="AL">Alagoas (AL)</option>
+          <option value="AP">Amapá (AP)</option>
+          <option value="AM">Amazonas (AM)</option>
+          <option value="BA">Bahia (BA)</option>
+          <option value="CE">Ceará (CE)</option>
+          <option value="DF">Distrito Federal (DF)</option>
+          <option value="ES">Espírito Santo (ES)</option>
+          <option value="GO">Goiás (GO)</option>
+          <option value="MA">Maranhão (MA)</option>
+          <option value="MT">Mato Grosso (MT)</option>
+          <option value="MS">Mato Grosso do Sul (MS)</option>
+          <option value="MG">Minas Gerais (MG)</option>
+          <option value="PA">Pará (PA)</option>
+          <option value="PB">Paraíba (PB)</option>
+          <option value="PR">Paraná (PR)</option>
+          <option value="PE">Pernambuco (PE)</option>
+          <option value="PI">Piauí (PI)</option>
+          <option value="RJ">Rio de Janeiro (RJ)</option>
+          <option value="RN">Rio Grande do Norte (RN)</option>
+          <option value="RS">Rio Grande do Sul (RS)</option>
+          <option value="RO">Rondônia (RO)</option>
+          <option value="RR">Roraima (RR)</option>
+          <option value="SC">Santa Catarina (SC)</option>
+          <option value="SP">São Paulo (SP)</option>
+          <option value="SE">Sergipe (SE)</option>
+          <option value="TO">Tocantins (TO)</option>
+        </select>
+
+        <label for="tipo">Deseja ser:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="">Selecione...</option>
+          <option value="voluntario">Voluntário</option>
+          <option value="padrinho">Padrinho</option>
+          <option value="ambos">Ambos</option>
+        </select>
+
+        <label for="mensagem">Mensagem (opcional)</label>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos um pouco sobre você..."></textarea>
+
+        <button type="submit">Enviar Cadastro</button>
+      </form>
     </section>
   </main>
 
