@@ -18,8 +18,8 @@ Há mais de 10 anos transformando vidas com amor e esperança! Este projeto é u
 .</p>
         <br>
         <div class="grid-12">
-            <div class="col-6"><h3 style="color: var(--cor-secondary);">Amor</h3><p>]É o melhor remédio</p></div>
-            <div class="col-6"><h3 style="color: var(--cor-secondary);">Ajudar</h3><p>]O proximo é multiplicar o amor do mundo</p></div>
+            <div class="col-6"><h3 style="color: var(--cor-secondary);">Amor</h3><p>É o melhor remédio</p></div>
+            <div class="col-6"><h3 style="color: var(--cor-secondary);">Ajudar</h3><p>O proximo é multiplicar o amor do mundo</p></div>
         </div>
       </div>
     </div>
