@@ -5,47 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Início | Amor que Cura</title>
   <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/script.js"></script>
 </head>
 <body>
   <header>
-    <div class="logo">
-      <div class="logo-wrapper"><img src="images/logo.png" alt="Logo"></div>
-      <h1>Projeto Amor que Cura</h1>
+    <div class="container header-content">
+      <div class="logo">
+        <img src="images/logo.png" alt="Logo">
+        <span>Amor que Cura</span>
+      </div>
+      
+      <button class="hamburger" aria-label="Abrir Menu">☰</button>
+
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Início</a></li>
+          
+          <li class="has-dropdown">
+            <a href="projetos.html">Projetos ▾</a>
+            <div class="dropdown-menu">
+              <a href="projetos.html">Ações Sociais</a>
+              <a href="projetos.html">Aulas</a>
+            </div>
+          </li>
+          
+          <li><a href="cadastro.html" class="btn" style="margin-left:10px;">Seja Doador</a></li>
+        </ul>
+      </nav>
     </div>
-    <nav>
-      <ul>
-        <li><a href="index.html" class="is-active">Início</a></li>
-        <li><a href="projetos.html">Projetos Sociais</a></li>
-        <li><a href="cadastro.html">Cadastro/Doar</a></li>
-      </ul>
-    </nav>
   </header>
 
-  <main>
-    <section>
-      <img src="images/tela-inicio.jpg" alt="Família feliz">
-      <h2>Sobre a Organização</h2>
-      <p>O projeto social <strong>Amor que Cura</strong> tem sido um farol de esperança...</p>
-      <p>Há mais de 10 anos transformando vidas!</p>
+  <main class="container" style="margin-top: var(--space-4);">
+    <div class="grid-12">
       
-      <h3>Contato</h3>
-      <p>Email: contato@amorquecura.org.br</p>
-      <p>Telefone: (31) 99999-9999</p>
-    </section>
+      <div class="col-6">
+        <img src="images/tela-inicio.jpg" alt="Família feliz" style="height: 100%; object-fit: cover;">
+      </div>
 
-    <section>
-        <img src="images/beneficios.jpg" alt="Benefícios">
-        <h2>Nossos Benefícios</h2>
-        <ul>
-            <li>Assistência Médica e Psicossocial</li>
-            <li>Programas Educacionais</li>
-            <li>Apoio Emocional</li>
-        </ul>
-    </section>
+      <div class="col-6">
+        <h1 style="color: var(--cor-primary); margin-bottom: var(--space-2);">Transformando Vidas</h1>
+        <p style="font-size: var(--font-lg);">O projeto social <strong>Amor que Cura</strong> tem sido um farol de esperança há mais de 10 anos.</p>
+        <br>
+        <div class="grid-12">
+            <div class="col-6">
+                <h3 style="color: var(--cor-secondary);">+1000</h3>
+                <p>Famílias Atendidas</p>
+            </div>
+            <div class="col-6">
+                <h3 style="color: var(--cor-secondary);">+50</h3>
+                <p>Voluntários Ativos</p>
+            </div>
+        </div>
+      </div>
+
+    </div>
   </main>
 
-  <footer>
-    <p>© 2025 - Projeto Amor que Cura</p>
+  <footer style="text-align: center; padding: var(--space-4); background: #222; color: white; margin-top: var(--space-6);">
+    <p>© 2025 - Design System Amor que Cura</p>
   </footer>
 </body>
 </html>
