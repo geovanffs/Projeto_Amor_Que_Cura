@@ -1,19 +1,21 @@
+console.log("O script.js começou a carregar...");
+
 /* ============================================================
-   MÓDULO 1: TEMPLATES (O HTML das páginas fica aqui)
+   MÓDULO 1: TEMPLATES (HTML das páginas)
    ============================================================ */
 const templates = {
   home: `
     <div class="grid-12 fade-in">
       <div class="col-6">
-        <img src="images/tela-inicio.jpg" alt="Família" style="height: 100%; object-fit: cover;">
+        <img src="images/tela-inicio.jpg" alt="Família" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px;">
       </div>
       <div class="col-6">
         <h1 style="color: var(--cor-primary); margin-bottom: 20px;">Bem-vindo à SPA Amor que Cura</h1>
-        <p>Transformando a experiência do usuário com Single Page Application.</p>
+        <p style="font-size: 1.1rem; color: var(--cor-text-light);">Transformando a experiência do usuário com Single Page Application.</p>
         <br>
         <div class="grid-12">
-            <div class="col-6"><h3 style="color: var(--cor-secondary);">SPA</h3><p>Navegação Rápida</p></div>
-            <div class="col-6"><h3 style="color: var(--cor-secondary);">DOM</h3><p>Manipulação Total</p></div>
+            <div class="col-6"><h3 style="color: var(--cor-secondary);">SPA</h3><p>Navegação sem recarregar</p></div>
+            <div class="col-6"><h3 style="color: var(--cor-secondary);">DOM</h3><p>Interatividade Total</p></div>
         </div>
       </div>
     </div>
@@ -21,7 +23,7 @@ const templates = {
   
   projetos: `
     <div class="fade-in">
-      <h2 style="margin-bottom: 24px;">Nossas Iniciativas</h2>
+      <h2 style="margin-bottom: 24px; color: var(--cor-primary);">Nossas Iniciativas</h2>
       <div class="grid-12">
         <div class="col-4">
           <article class="card">
@@ -60,10 +62,10 @@ const templates = {
   cadastro: `
     <div class="grid-12 fade-in">
       <div class="col-6" style="grid-column: span 8; grid-start: 3; margin: 0 auto;">
-        <h2>Cadastro Interativo</h2>
-        <p>Seus dados serão validados e salvos no LocalStorage.</p>
+        <h2 style="color: var(--cor-primary);">Cadastro Interativo</h2>
+        <p>Seus dados serão validados e salvos no navegador.</p>
         
-        <form id="spaForm" novalidate>
+        <form id="spaForm" novalidate style="margin-top: 20px;">
           <div class="form-group">
             <label>Nome Completo:</label>
             <input type="text" id="nome" placeholder="Mínimo 3 caracteres">
@@ -96,46 +98,52 @@ const templates = {
 };
 
 /* ============================================================
-   MÓDULO 2: LÓGICA PRINCIPAL (APP)
+   MÓDULO 2: APLICAÇÃO PRINCIPAL (APP)
    ============================================================ */
 const app = {
-  // Roteador: Gerencia qual tela mostrar
   router: {
     init: () => {
-      // Carrega a home por padrão
+      console.log("Router iniciado");
+      // Tenta carregar a página inicial
       app.router.navigate('home');
       
-      // Configura menu mobile
+      // Menu Mobile
       const btn = document.querySelector('.hamburger');
       const menu = document.querySelector('.nav-menu');
-      if(btn) btn.addEventListener('click', () => menu.classList.toggle('active'));
+      if(btn && menu) {
+          btn.addEventListener('click', () => menu.classList.toggle('active'));
+      }
     },
 
     navigate: (route) => {
+      console.log("Navegando para:", route);
       const container = document.getElementById('app-container');
       
-      // 1. Injeta o HTML do template
       if (templates[route]) {
         container.innerHTML = templates[route];
       } else {
-        container.innerHTML = "<h1>404 - Página não encontrada</h1>";
+        container.innerHTML = "<h2>Erro: Página não encontrada</h2>";
       }
 
-      // 2. Se for a tela de cadastro, ativa as máscaras e validações
+      // Se for cadastro, inicia validação e carrega dados
       if (route === 'cadastro') {
-        app.validation.init();
-        app.utils.loadSavedData(); // Carrega dados do LocalStorage se existirem
+        setTimeout(() => {
+            app.validation.init();
+            app.utils.loadSavedData();
+        }, 100); // Pequeno delay para garantir que o HTML carregou
       }
 
-      // 3. Fecha menu mobile se estiver aberto
-      document.querySelector('.nav-menu').classList.remove('active');
+      // Fecha menu mobile ao clicar
+      const menu = document.querySelector('.nav-menu');
+      if(menu) menu.classList.remove('active');
     }
   },
 
-  // Validação e Formulários
   validation: {
     init: () => {
       const form = document.getElementById('spaForm');
+      if(!form) return;
+
       const inputs = {
         nome: document.getElementById('nome'),
         email: document.getElementById('email'),
@@ -143,44 +151,41 @@ const app = {
         tel: document.getElementById('telefone')
       };
 
-      // Máscaras em tempo real
-      inputs.cpf.addEventListener('input', (e) => e.target.value = app.utils.maskCPF(e.target.value));
-      inputs.tel.addEventListener('input', (e) => e.target.value = app.utils.maskPhone(e.target.value));
+      // Máscaras
+      if(inputs.cpf) inputs.cpf.addEventListener('input', (e) => e.target.value = app.utils.maskCPF(e.target.value));
+      if(inputs.tel) inputs.tel.addEventListener('input', (e) => e.target.value = app.utils.maskPhone(e.target.value));
 
-      // Evento de Submit
+      // Submit
       form.addEventListener('submit', (e) => {
         e.preventDefault();
         let isValid = true;
 
-        // Limpa erros anteriores
+        // Limpa erros
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
         document.querySelectorAll('input').forEach(el => el.classList.remove('input-error'));
 
-        // Regra 1: Nome
+        // Validações
         if (inputs.nome.value.length < 3) {
-          app.validation.showError('nome', 'O nome deve ter pelo menos 3 letras.');
+          app.validation.showError('nome', 'Mínimo 3 letras.');
           isValid = false;
         }
 
-        // Regra 2: Email
         if (!inputs.email.value.includes('@') || !inputs.email.value.includes('.')) {
-          app.validation.showError('email', 'Digite um e-mail válido.');
+          app.validation.showError('email', 'E-mail inválido.');
           isValid = false;
         }
 
-        // Regra 3: CPF
         if (inputs.cpf.value.length < 14) {
           app.validation.showError('cpf', 'CPF incompleto.');
           isValid = false;
         }
 
-        // Se tudo ok, salva e avisa
         if (isValid) {
           app.utils.saveData({
             nome: inputs.nome.value,
             email: inputs.email.value
           });
-          alert('✅ Dados validados e salvos no LocalStorage!');
+          alert('✅ Dados salvos com sucesso (LocalStorage)!');
         }
       });
     },
@@ -193,7 +198,6 @@ const app = {
     }
   },
 
-  // Utilitários (Máscaras e LocalStorage)
   utils: {
     maskCPF: (v) => v.replace(/\D/g, '').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d)/, '$1.$2').replace(/(\d{3})(\d{1,2})$/, '$1-$2'),
     
@@ -217,5 +221,5 @@ const app = {
   }
 };
 
-// Inicializa a aplicação quando o DOM estiver pronto
+// Inicializa tudo
 document.addEventListener('DOMContentLoaded', app.router.init);
