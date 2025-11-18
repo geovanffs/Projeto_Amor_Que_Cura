@@ -10,7 +10,7 @@ const templates = {
         <img src="images/tela-inicio.jpg" alt="Família" style="width: 100%; height: auto; object-fit: cover; border-radius: 12px;">
       </div>
       <div class="col-6">
-        <h1 style="color: var(--cor-primary); margin-bottom: 20px;">Bem-vindo ao Projeto Amor que Cura</h1>
+        <h1 style="color: var(--cor-primary); margin-bottom: 20px;">Bem-vindo à Amor que Cura</h1>
         <p style="font-size: 1.1rem; color: var(--cor-text-light);">Somos um farol de esperança e transformação na nossa comunidade. Nosso propósito é auxiliar crianças com doenças raras, oferecendo suporte emocional, assistência médica e apoio essencial.
 
 Há mais de 10 anos transformando vidas com amor e esperança! Este projeto é um compromisso com a qualidade de vida e um futuro melhor para todos.
