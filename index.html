@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Projeto Amor que Cura</title>
 
-  <!-- style e script -->
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/script.js"></script>
 </head>
@@ -13,7 +12,6 @@
   <header>
     <div class="logo">
       <div class="logo-wrapper">
-        <!-- Verifique que o arquivo exista exatamente com esse nome em /images -->
         <img src="images/logo.png" alt="Logo Projeto Amor que Cura">
       </div>
       <h1>Projeto Amor que Cura</h1>
@@ -21,7 +19,6 @@
 
     <nav>
       <ul>
-        <!-- usamos data-section para navegação single-page como no VSCode -->
         <li><a href="#" data-section="inicio" class="is-active">Início</a></li>
         <li><a href="#" data-section="beneficios">Benefícios</a></li>
         <li><a href="#" data-section="aulas">Aulas</a></li>
@@ -33,7 +30,6 @@
   </header>
 
   <main>
-    <!-- INÍCIO -->
     <section id="inicio" class="active" aria-labelledby="titulo-inicio">
       <img src="images/tela-inicio.jpg" alt="Família feliz representando o projeto Amor que Cura">
       <h2 id="titulo-inicio">Sobre o Projeto</h2>
@@ -41,9 +37,8 @@
       <p>Há mais de 10 anos transformando vidas com amor e esperança! Este projeto é um compromisso com a qualidade de vida e um futuro melhor para todos.</p>
     </section>
 
-    <!-- BENEFÍCIOS -->
     <section id="beneficios" aria-labelledby="titulo-beneficios">
-      <img src="images/icone_beneficios.jpg" alt="Ícone de coração representando benefícios">
+      <img src="images/Icone-beneficios.jpg" alt="Ícone de coração representando benefícios">
       <h2 id="titulo-beneficios">Benefícios</h2>
       <ul>
         <li>Assistência Médica e Psicossocial</li>
@@ -53,7 +48,6 @@
       </ul>
     </section>
 
-    <!-- AULAS -->
     <section id="aulas" aria-labelledby="titulo-aulas">
       <img src="images/tela-aulas.png" alt="Ícone das aulas">
       <h2 id="titulo-aulas">Aulas</h2>
@@ -66,7 +60,6 @@
       </ul>
     </section>
 
-    <!-- AÇÕES -->
     <section id="acoes" aria-labelledby="titulo-acoes">
       <img src="images/tela-acoes-realizadas.png" alt="Ícone de ação social">
       <h2 id="titulo-acoes">Ações Realizadas</h2>
@@ -78,7 +71,6 @@
       </ul>
     </section>
 
-    <!-- MÍDIAS -->
     <section id="midias" aria-labelledby="titulo-midias">
       <img src="images/tela-midias.png" alt="Ícone de mídias sociais">
       <h2 id="titulo-midias">Mídias</h2>
@@ -88,13 +80,11 @@
       <a href="#">Facebook</a>
     </section>
 
-    <!-- APADRINHAMENTO -->
     <section id="apadrinhamento" aria-labelledby="titulo-apadrinhamento">
       <img src="images/tela-apadrinhamento.png" alt="Ícone de apadrinhamento">
       <h2 id="titulo-apadrinhamento">Apadrinhamento</h2>
       <p>Você pode fazer parte da mudança de vida de uma criança!</p>
 
-      <!-- Formulário completo (mantenha action="#" se for apenas mock) -->
       <form id="formApadrinhamento" action="#" method="post" novalidate>
         <label for="nome">Nome Completo *</label>
         <input type="text" id="nome" name="nome" required>
@@ -110,59 +100,6 @@
 
         <label for="dataNascimento">Data de Nascimento *</label>
         <input type="date" id="dataNascimento" name="dataNascimento" required>
-
-        <label for="endereco">Endereço *</label>
-        <input type="text" id="endereco" name="endereco" required>
-
-        <label for="cidade">Cidade *</label>
-        <input type="text" id="cidade" name="cidade" required>
-
-        <label for="cep">CEP *</label>
-        <input type="text" id="cep" name="cep" placeholder="00000-000" required>
-
-        <label for="estado">Estado *</label>
-        <select id="estado" name="estado" required>
-          <option value="">Selecione...</option>
-          <option value="AC">Acre (AC)</option>
-          <option value="AL">Alagoas (AL)</option>
-          <option value="AP">Amapá (AP)</option>
-          <option value="AM">Amazonas (AM)</option>
-          <option value="BA">Bahia (BA)</option>
-          <option value="CE">Ceará (CE)</option>
-          <option value="DF">Distrito Federal (DF)</option>
-          <option value="ES">Espírito Santo (ES)</option>
-          <option value="GO">Goiás (GO)</option>
-          <option value="MA">Maranhão (MA)</option>
-          <option value="MT">Mato Grosso (MT)</option>
-          <option value="MS">Mato Grosso do Sul (MS)</option>
-          <option value="MG">Minas Gerais (MG)</option>
-          <option value="PA">Pará (PA)</option>
-          <option value="PB">Paraíba (PB)</option>
-          <option value="PR">Paraná (PR)</option>
-          <option value="PE">Pernambuco (PE)</option>
-          <option value="PI">Piauí (PI)</option>
-          <option value="RJ">Rio de Janeiro (RJ)</option>
-          <option value="RN">Rio Grande do Norte (RN)</option>
-          <option value="RS">Rio Grande do Sul (RS)</option>
-          <option value="RO">Rondônia (RO)</option>
-          <option value="RR">Roraima (RR)</option>
-          <option value="SC">Santa Catarina (SC)</option>
-          <option value="SP">São Paulo (SP)</option>
-          <option value="SE">Sergipe (SE)</option>
-          <option value="TO">Tocantins (TO)</option>
-        </select>
-
-        <label for="tipo">Deseja ser:</label>
-        <select id="tipo" name="tipo" required>
-          <option value="">Selecione...</option>
-          <option value="voluntario">Voluntário</option>
-          <option value="padrinho">Padrinho</option>
-          <option value="ambos">Ambos</option>
-        </select>
-
-        <label for="mensagem">Mensagem (opcional)</label>
-        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos um pouco sobre você..."></textarea>
-
         <button type="submit">Enviar Cadastro</button>
       </form>
     </section>
