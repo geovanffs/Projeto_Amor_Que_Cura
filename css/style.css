@@ -174,20 +174,13 @@ footer {
   .logo-wrapper { width: 60px; height: 45px; }
   .logo img { width: 60px; height: 60px; }
 
- /* esconder por padrão (se o JS não rodar já fica oculto) */
-main section {
-  display: none;
-  padding: 30px 0;
-}
+/* garante que seções fiquem escondidas por padrão se JS não rodar */
+main section { display: none; padding: 30px 0; }
+main section.active { display: block; }
 
-/* seção ativa fica visível */
-main section.active {
-  display: block;
-}
+/* destaque para link ativo */
+nav a.is-active { outline: 2px solid rgba(255,255,255,0.12); border-radius: 6px; }
 
-/* classe visual para link ativo (opcional) */
-nav a.is-active {
-  outline: 3px solid rgba(255,255,255,0.12);
-  border-radius: 6px;
-}
+/* pequenos ajustes de layout (opcional) */
+main { max-width: 1000px; margin: 0 auto; padding: 30px; }
 
