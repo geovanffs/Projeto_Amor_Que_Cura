@@ -1,103 +1,58 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apadrinhamento | Amor que Cura</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro | Amor que Cura</title>
   <link rel="stylesheet" href="css/style.css">
   <script defer src="js/script.js"></script>
 </head>
 <body>
   <header>
     <div class="logo">
-      <div class="logo-wrapper">
-        <img src="images/logo.png" alt="Logo Projeto Amor que Cura" />
-      </div>
+      <div class="logo-wrapper"><img src="images/logo.png" alt="Logo"></div>
       <h1>Projeto Amor que Cura</h1>
     </div>
-
     <nav>
       <ul>
         <li><a href="index.html">Início</a></li>
-        <li><a href="projetos.html">Projetos</a></li>
-        <li><a href="cadastro.html" aria-current="page">Apadrinhamento</a></li>
+        <li><a href="projetos.html">Projetos Sociais</a></li>
+        <li><a href="cadastro.html" class="is-active">Cadastro/Doar</a></li>
       </ul>
     </nav>
   </header>
 
   <main>
-    <section id="apadrinhamento">
-      <h2>Apadrinhamento</h2>
-      <p>Você pode fazer parte da mudança de vida de uma criança!</p>
-
-      <!-- FORMULÁRIO -->
-      <form id="formApadrinhamento" action="#" method="post" novalidate>
-        <fieldset>
-          <legend>Dados pessoais</legend>
-
-          <label for="nome">Nome Completo *</label>
-          <input type="text" id="nome" name="nome" required>
-
-          <label for="email">E-mail *</label>
-          <input type="email" id="email" name="email" required>
-
-          <label for="telefone">Telefone *</label>
-          <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
-
-          <label for="cpf">CPF *</label>
-          <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00" required>
-
-          <label for="dataNascimento">Data de Nascimento *</label>
-          <input type="date" id="dataNascimento" name="dataNascimento" required>
-        </fieldset>
-
-        <fieldset>
-          <legend>Endereço</legend>
-
-          <label for="endereco">Endereço *</label>
-          <input type="text" id="endereco" name="endereco" required>
-
-          <label for="cep">CEP *</label>
-          <input type="text" id="cep" name="cep" placeholder="00000-000" required>
-
-          <label for="cidade">Cidade *</label>
-          <input type="text" id="cidade" name="cidade" required>
-
-          <label for="estado">Estado *</label>
-          <select id="estado" name="estado" required>
-            <option value="">Selecione...</option>
-            <!-- ... opções ... -->
-            <option value="MG">Minas Gerais (MG)</option>
-            <option value="SP">São Paulo (SP)</option>
-            <option value="RJ">Rio de Janeiro (RJ)</option>
-            <!-- Adicione todas se preferir -->
-          </select>
-        </fieldset>
-
-        <fieldset>
-          <legend>Interesse</legend>
-
-          <label for="tipo">Deseja ser:</label>
-          <select id="tipo" name="tipo" required>
-            <option value="">Selecione...</option>
-            <option value="voluntario">Voluntário</option>
-            <option value="padrinho">Padrinho</option>
-            <option value="ambos">Ambos</option>
-          </select>
-
-          <label for="mensagem">Mensagem (opcional)</label>
-          <textarea id="mensagem" name="mensagem" rows="4" placeholder="Conte-nos um pouco sobre você..."></textarea>
-        </fieldset>
+    <section>
+      <img src="images/tela-apadrinhamento.png" alt="Apadrinhamento">
+      <h2>Seja um Voluntário ou Padrinho</h2>
+      
+      <form id="formApadrinhamento">
+        <label>Nome Completo: <input type="text" required></label>
+        <label>E-mail: <input type="email" required></label>
+        <label>Telefone: <input type="tel" id="telefone" placeholder="(00) 00000-0000" required></label>
+        <label>CPF: <input type="text" id="cpf" placeholder="000.000.000-00" required></label>
+        <label>Data de Nascimento: <input type="date" required></label>
+        
+        <h3>Endereço</h3>
+        <label>CEP: <input type="text" id="cep" required></label>
+        <label>Endereço: <input type="text" required></label>
+        <label>Cidade: <input type="text" required></label>
+        <label>Estado: 
+            <select required>
+                <option value="">Selecione...</option>
+                <option value="MG">Minas Gerais</option>
+                <option value="SP">São Paulo</option>
+            </select>
+        </label>
 
         <button type="submit">Enviar Cadastro</button>
       </form>
-      <!-- /FORMULÁRIO -->
-
     </section>
   </main>
 
   <footer>
-    <p>© 2025 - Projeto Amor que Cura | Todos os direitos reservados</p>
+    <p>© 2025 - Projeto Amor que Cura</p>
   </footer>
 </body>
 </html>
